@@ -11,17 +11,22 @@ namespace ConsoleListOfObjects
         static void Main(string[] args)
         {
 
+            List<PersonCar> ListOfCars = new List<PersonCar>();
+            DisplayGetListOfCar(ListOfCars);
+            DisplayListOfCars(ListOfCars);
+
+        }
+
+
+        static void DisplayGetListOfCar(List<PersonCar>ListOfCars)
+        {
             bool validResponse = false;
             bool continueAdding = true;
-
             string userResponse;
             int year;
             double engine;
             PersonCar.MakeName carMake;
-
             PersonCar newPersonCar = new PersonCar();
-
-            List<PersonCar> ListOfCars = new List<PersonCar>();
 
             do
             {
@@ -50,7 +55,7 @@ namespace ConsoleListOfObjects
                 // Enter and validate car year
                 //
 
-                Console.WriteLine();
+                
                 Console.Write("Please enter car year. ");
                 validResponse = int.TryParse(Console.ReadLine(), out year);
                 while (!validResponse)
@@ -63,8 +68,7 @@ namespace ConsoleListOfObjects
                 //
                 // Enter and validate engine size
                 //
-
-                Console.WriteLine();
+                
                 Console.Write("Please enter engine size. ");
                 validResponse = double.TryParse(Console.ReadLine(), out engine);
                 while (!validResponse)
@@ -77,8 +81,7 @@ namespace ConsoleListOfObjects
                 //
                 // Enter and Validate body top
                 //
-
-                Console.WriteLine();
+                
                 do
                 {
                     Console.Write("Is the body style a hard top? ");
@@ -129,26 +132,29 @@ namespace ConsoleListOfObjects
                 } while (!validResponse);
 
             } while (continueAdding);
-            Console.WriteLine();
-            Console.Clear();
-            Console.WriteLine();
-            Console.WriteLine("Press any Key to Display the List of Cars. ");
-            Console.ReadKey();
-            foreach (PersonCar car in ListOfCars)
-            {
-                Console.WriteLine();
-                Console.WriteLine($"Make of Car: {car.Make}");
-                Console.WriteLine($"Model of Car: {car.Model}");
-                Console.WriteLine($"Year of Car: {car.Year}");
-
-                Console.WriteLine($"Size of Engine: {car.Engine}");
-                Console.WriteLine($"Is Body Style Hard Top: {car.IsHardTop}");
-                Console.WriteLine();
-            }
-
-
-            Console.WriteLine("Press any Key to exit the application. ");
-            Console.ReadKey();
         }
+            static void DisplayListOfCars(List<PersonCar>ListOfCars)
+            {
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine("Press any Key to Display the List of Cars. ");
+                Console.ReadKey();
+                foreach (PersonCar car in ListOfCars)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine($"Make of Car: {car.Make}");
+                    Console.WriteLine($"Model of Car: {car.Model}");
+                    Console.WriteLine($"Year of Car: {car.Year}");
+
+                    Console.WriteLine($"Size of Engine: {car.Engine}");
+                    Console.WriteLine($"Is Body Style Hard Top: {car.IsHardTop}");
+                    Console.WriteLine();
+                }
+
+
+                Console.WriteLine("Press any Key to exit the application. ");
+                Console.ReadKey();
+            }
+        
     }
 }
