@@ -129,7 +129,7 @@ namespace ConsoleListOfObjects
                 } while (!validResponse);
 
             } while (continueAdding);
-
+            Console.WriteLine();
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine("Press any Key to Display the List of Cars. ");
